@@ -90,7 +90,15 @@ def drawScatter(heights, weights):
     pyplot.title('Heights & Weights Of Male Students')
     pyplot.show()
     
-    
+
+#获得上周5的日期
+from datetime import datetime  
+from dateutil.relativedelta import relativedelta  
+from dateutil.rrule import *  
+d = datetime.now()  
+print(d)  
+print(d + relativedelta(weekday=FR))  
+print(d + relativedelta(weekday=FR(-1)))  
     
     
     

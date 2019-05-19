@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from pylab import figure, show 
 from matplotlib.finance import quotes_historical_yahoo 
 from matplotlib.dates import YearLocator, MonthLocator, DateFormatter 
