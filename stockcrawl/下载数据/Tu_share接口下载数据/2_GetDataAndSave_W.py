@@ -6,7 +6,7 @@ import tushare as ts
 import numpy as np
 
 
-DataFile = 'd:\\StockFile\\StockCode.csv'
+DataFile = 'd:\\StockFile\\whole\\StockCode.csv'
 OriginalDay = '1991-01-01'
 StockDatapath = 'd:\\StockFile\\StockData_D'
 StockDatapathW = 'd:\\StockFile\\StockData_W'

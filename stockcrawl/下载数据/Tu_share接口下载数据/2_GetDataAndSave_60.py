@@ -7,15 +7,10 @@ import numpy as np
 # 最后合并的数据出错，需要进一步整理
 # 需要有一个可以方便显示数据拆线图的工具
 
-DataFile = 'd:\\StockFile\\StockCode.csv'
+DataFile = 'd:\\StockFile\\whole\\StockCode.csv'
 TestFile = 'D:\\StockFile\\test'
 OriginalDay = '1991-01-01'
-StockDatapath = 'd:\\StockFile\\StockData_D'
-StockDatapathW = 'd:\\StockFile\\StockData_W'
-StockDatapathM = 'd:\\StockFile\\StockData_M'
-StockDatapath60 = 'd:\\StockFile\\StockData_60'
-StockDatapath30 = 'd:\\StockFile\\StockData_30'
-
+StockDatapath60 = 'd:\\StockFile\\StockData_60_New'
 
 
 ################################################调用get_hist_data###########################################
@@ -28,7 +23,7 @@ def GetAllDataAndSave(DataFiles, SavePath):
         today = str(cur.year) + '-' + str(cur.month) + '-' + str(cur.day)
         strStoceCade = '0' * (6 - len(str(StockCode))) + str(StockCode)
         try:
-            StockData = ts.get_k_data(strStoceCade, OriginalDay, today,ktype='30')
+            StockData = ts.get_k_data(strStoceCade, OriginalDay, today,ktype='60')
         except:
             print('Error')
         else:
@@ -47,7 +42,7 @@ def GetAllDataAndSave(DataFiles, SavePath):
 
 
 if __name__=="__main__":
-    GetAllDataAndSave(DataFile,StockDatapath30)
+    GetAllDataAndSave(DataFile,StockDatapath60)
 
 #########################################################################################################
 

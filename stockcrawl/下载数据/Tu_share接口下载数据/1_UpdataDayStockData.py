@@ -10,7 +10,7 @@ import numpy as np
 # 最后合并的数据出错，需要进一步整理
 # 需要有一个可以方便显示数据拆线图的工具
 
-DataFile = 'd:\\StockFile\\StockCode.csv'
+DataFile = 'd:\\StockFile\\whole\\StockCode.csv'
 TestFile = 'D:\\StockFile\\test'
 OriginalDay = '1991-01-01'
 StockDatapath = 'd:\\StockFile\\StockData_D'
@@ -76,6 +76,7 @@ def updateFile(FilePath,StockCode):
     filedata = Read_Csv_File(FilePath)  # 读取每个文件的数据
     lastDay = filedata.index.max()  # 最近的那一天
     beginday = filedata.index.min()
+    filedata = filedata[:-1]
     cur = datetime.datetime.now()  # 当前时间
     today = str(cur.year) + '-' + str(cur.month) + '-' + str(cur.day + 1)
     if lastDay.replace('0', '') != today.replace('0', ''):
@@ -90,7 +91,9 @@ def updateFile(FilePath,StockCode):
                 StockData.columns.name = 'date'
                 StockData = StockData.sort_index()  # 排序
                 StockData = StockData.dropna(axis=1)  # 去除有空值的列
-                StockData = StockData.drop_duplicates(['close', 'high', 'low', 'open'])  # 去除重复的行
+                StockData['date'] = StockData.index
+                StockData = StockData.drop_duplicates(['date'])  # 去除重复的行
+                StockData.drop(['date'],axis=1,inplace=True)
                 StockData.T.to_csv(FilePath)  # 保存数据
                 print('........')
                 print(StockCode)
@@ -135,7 +138,9 @@ if __name__=="__main__":
     cur = datetime.datetime.now()
     OriginalDay = '1997-01-01'
     today = str(cur.year) + '-' + str(cur.month) + '-' + str(cur.day)
-    ts.get_k_data('sh',start=OriginalDay, end=today).sort_index().T.to_csv('d://StockFile//whole//sh'+'.csv')
+    data = ts.get_k_data('sh',start=OriginalDay, end=today).set_index(['date']).sort_index()
+    data.columns.name = 'date'
+    data = data.T.to_csv('d://StockFile//whole//sh'+'.csv')
 
 
 

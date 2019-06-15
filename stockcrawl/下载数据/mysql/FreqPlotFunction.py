@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import math
 
+
+
 def DataFramePlot(stockmean,titlename):
     Data = pd.Series(stockmean).sort_values()
     plt.plot(range(0, len(Data)), Data.values)

@@ -7,12 +7,11 @@ import numpy as np
 # 最后合并的数据出错，需要进一步整理
 # 需要有一个可以方便显示数据拆线图的工具
 
-DataFile = 'd:\\StockFile\\StockCode.csv'
+DataFile = 'd:\\StockFile\\whole\\StockCode.csv'
 TestFile = 'D:\\StockFile\\test'
 OriginalDay = '1991-01-01'
-StockDatapath = 'd:\\StockFile\\StockData_D'
-StockDatapathW = 'd:\\StockFile\\StockData_W'
-StockDatapathM = 'd:\\StockFile\\StockData_M'
+StockDatapath = 'd:\\StockFile\\StockData_D_New'
+StockDatapath30 = 'd:\\StockFile\\StockData_30_New'
 
 
 
@@ -26,27 +25,31 @@ def GetAllDataAndSave(DataFiles, SavePath):
         today = str(cur.year) + '-' + str(cur.month) + '-' + str(cur.day)
         strStoceCade = '0' * (6 - len(str(StockCode))) + str(StockCode)
         try:
-            StockData = ts.get_hist_data(strStoceCade, OriginalDay, today)
+            StockData = ts.get_k_data(strStoceCade, OriginalDay, today,ktype='30')
         except:
             print('Error')
         else:
-            if not StockData is None:
-                StockData.columns.name = 'date'
-                filename = SavePath + '//' + strStoceCade + '.csv'
-                print(filename)
-                StockData = StockData.sort_index()  #
+            filename = SavePath + '//' + strStoceCade + '.csv'
+            print(filename)
+            try:
+                if StockData.columns.name != 'date':
+                    StockData.set_index(['date'], inplace=True)  # 将date列设置为index
+                    StockData.columns.name = 'date'
+                StockData = StockData.sort_index()#
                 StockData = StockData.T.to_csv(filename)
-            else:
-                print(filename)
+            except:
+                print('Save '+filename+' Error.')
     print('Done!')
+
+
+
+if __name__=="__main__":
+    GetAllDataAndSave(DataFile,StockDatapath30)
 
 #########################################################################################################
 
 
-if __name__=="__main__":
-    # 下载保存上证指数数据
-    StockData = ts.get_hist_data('sh')
-    StockData.sort_index().T.to_csv('d://StockFile//whole//sh.csv')
+
 
 
 

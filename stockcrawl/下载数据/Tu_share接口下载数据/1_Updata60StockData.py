@@ -44,6 +44,7 @@ def updateFile(FilePath,StockCode):
     filedata = Read_Csv_File(FilePath)  # 读取每个文件的数据
     lastDay = filedata.index.max()  # 最近的那一天
     beginday = filedata.index.min()
+    filedata = filedata[:-1]
     print(lastDay)
     if lastDay.find('/') > 0:
         lastdayTemp = datetime.datetime.strptime(lastDay, "%Y/%m/%d %H:%M")
@@ -67,7 +68,9 @@ def updateFile(FilePath,StockCode):
                 StockData.columns.name = 'date'
                 StockData = StockData.sort_index()  # 排序
                 StockData = StockData.dropna(axis=1)  # 去除有空值的列
-                StockData = StockData.drop_duplicates(['close', 'high', 'low', 'open'])  # 去除重复的行
+                StockData['date'] = StockData.index
+                StockData = StockData.drop_duplicates(['date'])  # 去除重复的行
+                StockData.drop(['date'],axis=1,inplace=True)
                 StockData.T.to_csv(FilePath)  # 保存数据
                 print('........')
                 print(StockCode)
