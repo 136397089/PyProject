@@ -90,7 +90,7 @@ def DataRecord():
     MorningBegin = datetime.datetime(curTime.year, curTime.month, curTime.day, 9, 29, 0)
     AfternoonEnd = datetime.datetime(curTime.year, curTime.month, curTime.day, 15, 10, 0)
     while curTime < MorningBegin:
-        print('Wait for ' + MorningBegin.strftime('%Y_%m_%d_%H_%M'))
+        print('New ' + curTime.strftime('%Y_%m_%d_%H_%M') + 'Wait for ' + MorningBegin.strftime('%Y_%m_%d_%H_%M'))
         time.sleep(10)
         curTime = datetime.datetime.now()
     recordData= pd.DataFrame(columns=['code', 'type', 'time', 'open', 'high', 'low', 'close', 'volume'])

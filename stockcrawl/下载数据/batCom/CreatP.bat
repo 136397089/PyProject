@@ -1,0 +1,1 @@
+D:\MyProjects\python\stockcrawl\обтьйЩ╬щ\SellBuy\CreatP\CreatAllParameter.exe
