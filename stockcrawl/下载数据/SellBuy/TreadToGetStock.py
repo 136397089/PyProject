@@ -90,6 +90,10 @@ def GetCDP(code):
 	return [AH,NH,cdp,NL,AL]
 
 
+	
+	
+	
+	
 
 class ThreadToChackStockPrice(threading.Thread):
 	def __init__(self, threadID, StockCode):#
@@ -307,6 +311,7 @@ class AccountGroup():
 				logger.info('执行清空股票%s操作',code)
 				ac.ClearStock(code)
 		if len(self.FindAccountHasTradableStockCode(code)) > 0:
+			logger.info('股票%s还未清空完成。',code)
 			self.ValueTaskList.put([self.Element_FClearAccountStock,code])
 			return True
 		else :
@@ -432,13 +437,13 @@ class AccountGroup():
 				#logger.warning('跳过不可操作股票.')
 				continue
 			if stockStateList[key] == CDPState.UP:#卖出操作
-				logger.info('尝试卖出.股票：%s',key)
+				#logger.info('尝试卖出.股票：%s',key)
 				if self.Element_FClearAccountStock(key):
 					logger.info('成功卖出.股票：%s',key)
 					self.ValueTodaySellCode.append(key)
 					self.FSaveToXML()
-				else:
-					logger.warning('卖出股票：%s失败',key)
+				#else:
+					#logger.warning('卖出股票：%s失败',key)
 				continue
 			if self.TodayBuyCount > self.OneDayStockCount:
 				self.ProcePrint.write_mmap_info('今天买入的股票数已经到达上限，不再进行买入操作。')

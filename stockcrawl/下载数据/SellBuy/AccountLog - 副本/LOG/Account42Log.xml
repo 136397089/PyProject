@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LogPack account="Account42">
+	<Account number="Account42">
+		<PassWord>123456</PassWord>
+		<InitialFunds>1000000</InitialFunds>
+	</Account>
+	<DailyLog date="2019-01-01">
+		<Date>2019-01-01</Date>
+		<BeginAvailable>1000000</BeginAvailable>
+		<BeginHolding>EmptyHold
+		</BeginHolding>
+		<EndAvailable>1000000</EndAvailable>
+		<EndHolding>EmptyHold
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-05">
+		<date>2019-08-05</date>
+		<BeginAvailable>1000000.0</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<EndAvailable>1000000.0</EndAvailable>
+		<EndHolding Hold="Hold"/>
+	</DailyLog>
+	<DailyLog date="2019-08-06">
+		<date>2019-08-06</date>
+		<BeginAvailable>1000000.0</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<BuyOperation>
+			<StockCode>002430</StockCode>
+			<StockNumber>38400</StockNumber>
+			<CostPrice>13.0</CostPrice>
+			<OtherExpenses>798.72</OtherExpenses>
+			<Time>2019-08-06 10:36:37</Time>
+		</BuyOperation>
+		<EndAvailable>500001.28</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002430</StockCode>
+				<StockNumber>38400</StockNumber>
+				<CostPrice>13.0</CostPrice>
+				<OtherExpenses>798.72</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+</LogPack>

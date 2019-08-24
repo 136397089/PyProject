@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LogPack account="Account418">
+	<Account number="Account418">
+		<PassWord>123456</PassWord>
+		<InitialFunds>1000000</InitialFunds>
+	</Account>
+	<DailyLog date="2019-01-01">
+		<Date>2019-01-01</Date>
+		<BeginAvailable>1000000</BeginAvailable>
+		<BeginHolding>EmptyHold
+		</BeginHolding>
+		<EndAvailable>1000000</EndAvailable>
+		<EndHolding>EmptyHold
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-05">
+		<date>2019-08-05</date>
+		<BeginAvailable>499443.3888</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<EndAvailable>499443.3888</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>601229</StockCode>
+				<StockNumber>55100.0</StockNumber>
+				<CostPrice>9.07</CostPrice>
+				<OtherExpenses>799.6111999999922</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-06">
+		<date>2019-08-06</date>
+		<BeginAvailable>499443.3888</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>601229</StockCode>
+				<StockNumber>55100</StockNumber>
+				<CostPrice>9.07</CostPrice>
+				<OtherExpenses>799.6111999999922</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<BuyOperation>
+			<StockCode>000567</StockCode>
+			<StockNumber>55000</StockNumber>
+			<CostPrice>8.97</CostPrice>
+			<OtherExpenses>789.3600000000001</OtherExpenses>
+			<Time>2019-08-06 14:56:16</Time>
+		</BuyOperation>
+		<SellOperation>
+			<StockCode>601229</StockCode>
+			<StockNumber>55100.0</StockNumber>
+			<CostPrice>8.87</CostPrice>
+			<OtherExpenses>0</OtherExpenses>
+			<Time>2019-08-06 09:29:27</Time>
+		</SellOperation>
+		<EndAvailable>494041.0287999999</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>601229</StockCode>
+				<StockNumber>55100.0</StockNumber>
+				<CostPrice>9.270000000000001</CostPrice>
+				<OtherExpenses>1599.2223999999844</OtherExpenses>
+			</Stock>
+			<Stock>
+				<StockCode>000567</StockCode>
+				<StockNumber>55000</StockNumber>
+				<CostPrice>8.97</CostPrice>
+				<OtherExpenses>789.3600000000001</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+</LogPack>

@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r'D:/MyProjects/python/stockcrawl/下载数据/SellBuy')
 import os
-sys.path.append(os.getcwd())
+sys.path.append(os.path.dirname(__file__))
 from PriceLoop import PriceLoopFactory
 from xml.dom.minidom import Document
 import datetime
@@ -13,7 +13,19 @@ from xml.dom import minidom
 import codecs  
 import logging
 from PriceLoop import logger
-import os,shutil
+import shutil
+
+
+
+
+from xml.sax.handler import ContentHandler
+from xml.sax import make_parser
+ 
+ 
+def parseFile(fileName):
+	parser = make_parser()
+	parser.setContentHandler(ContentHandler())
+	parser.parse(fileName)
 
 def mymovefile(srcfile,dstfile):
 	if not os.path.isfile(srcfile):
@@ -21,8 +33,8 @@ def mymovefile(srcfile,dstfile):
 	else:
 		fpath,fname=os.path.split(dstfile)	#分离文件名和路径
 		if not os.path.exists(fpath):
-			os.makedirs(fpath)		        #创建路径
-		shutil.move(srcfile,dstfile)          #移动文件
+			os.makedirs(fpath)				#创建路径
+		shutil.move(srcfile,dstfile)		  #移动文件
 		#print('move '+ srcfile + ' -> ' + dstfile)
 
 def mycopyfile(srcfile,dstfile):
@@ -32,7 +44,14 @@ def mycopyfile(srcfile,dstfile):
 		fpath,fname=os.path.split(dstfile)	#分离文件名和路径
 		if not os.path.exists(fpath):
 			os.makedirs(fpath)				#创建路径
-		shutil.copyfile(srcfile,dstfile)	  #复制文件
+		try:#如果XML文件是合法的，才可以备份
+			parseFile(srcfile)
+			print(srcfile+' is OK!')
+			shutil.copyfile(srcfile,dstfile)	  #复制文件
+			return True
+		except Exception as e:
+			print('Error found in file:'+srcfile)
+			return False
 		#print('copy '+srcfile+' -> ' + dstfile)
 
 
@@ -295,6 +314,7 @@ class DayLog():
 		self.EndAvailable = self.EndAvailable - Count * Price - Cost
 	def SellOper(self,Code,count,price):#
 		reduceHold = False
+		TagHold = 0
 		for hold in self.EndHolding:
 			if hold.StockCode == Code and hold.StockNumber == 0:
 				logger.warning('股票数量为空，不继续操作。')
@@ -303,20 +323,27 @@ class DayLog():
 				logger.warning('正常卖出股票')
 				hold.CostPrice = (hold.CostPrice * hold.StockNumber - count * price) / (hold.StockNumber - count)
 				hold.StockNumber = hold.StockNumber - count
+				print(hold.StockCode,' ',hold.StockNumber)
 				reduceHold = True
+				TagHold = hold
 			elif hold.StockCode == Code and hold.StockNumber == count:
 				logger.warning('正常卖出股票')
 				hold.CostPrice = 0
 				hold.StockNumber = 0
+				print(hold.StockCode,' ',hold.StockNumber)
 				reduceHold = True
+				TagHold = hold
 			elif hold.StockCode == Code and hold.StockNumber < count:
 				logger.warning('股票数量不足，以卖出所有计算。')
 				hold.CostPrice = 0
 				hold.StockNumber = 0
 				reduceHold = True
+				TagHold = hold
 		if not reduceHold:
 			logger.warning('拥有的股票数量不足，不可以正常操作。')
 			return False
+		if TagHold.StockNumber < 1:
+			self.EndHolding.remove(TagHold)
 		logger.info('清除股票完成。')
 		Operation = StockOperation()
 		Operation.Set(Code,count,price,0,datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
@@ -433,7 +460,7 @@ class Account():
 		self.balance = {}
 		self.__AccountEle = 0
 		self.LoadAccount(nume, dom)
-		self.Log = 0
+		self.XMLLog = 0
 		#self.LoadLogFile()
 	def __NodeToData(self, key ,data):
 		if key in strNode:
@@ -442,7 +469,7 @@ class Account():
 			return float(data)
 		else:
 			logger.info('key-%s do not find',key)
-	def __DictAddToDOM(self,dom,Dict,Father):
+	def __DictAddToDOM(self,dom,Dict,Father):#
 		for key in Dict:
 			childEle = dom.createElement(key)
 			childEle.appendChild(dom.createTextNode(str(Dict[key])))
@@ -577,7 +604,7 @@ class Account():
 		dom.removeChild(self.__AccountEle)
 		dom.appendChild(AccountEle)
 		self.__AccountEle = AccountEle
-		self.Log.SaveAccountLog()
+		self.XMLLog.SaveAccountLog()
 		return
 	def AddThisNodeToDOM(self,dom):#将账户的资金和股票数据转为dom,不删除原有的dom
 		for childDom in dom.GetDocumentElement().getElementsByTagName('Account'):
@@ -625,7 +652,7 @@ class Account():
 			self.balance[BAL_AFu] = self.balance[BAL_AFu] - price * count - cost#可用资金下调
 			self.balance[BAL_CBa] = self.balance[BAL_CBa] - price * count - cost#资金余额下调
 			self.__B_AddPositionStock(price,count,stockcode)
-			self.Log.TodayLog.BuyOper(stockcode,count,price,cost)
+			self.XMLLog.TodayLog.BuyOper(stockcode,count,price,cost)
 			logger.info('购入股票成功')
 			self.CalAllData()
 			return True
@@ -644,7 +671,7 @@ class Account():
 		self.balance[BAL_CBa] = self.balance[BAL_CBa] + price * TradableCount#增加资金余额
 		self.__S_ReduceStock(price, TradableCount, stockcode)
 		logger.info('卖出股票%s成功',stockcode)
-		self.Log.TodayLog.SellOper(stockcode,count,price)
+		self.XMLLog.TodayLog.SellOper(stockcode,count,price)
 		self.CalAllData()
 		self.RemoveEmptyStock()
 		return True
@@ -668,7 +695,7 @@ class Account():
 			self.CalAllData()
 			self.RemoveEmptyStock()
 			logger.info('卖出股票%s成功',code)
-			self.Log.TodayLog.SellOper(code, ableCount, CurrentPrice)
+			self.XMLLog.TodayLog.SellOper(code, ableCount, CurrentPrice)
 			return True
 		else:
 			inofr = self.Number + '未拥有股票：' + code + ' 无法卖出。'
@@ -736,12 +763,13 @@ class Account():
 				OnTheWayStock.append(hold[POS_SCo])
 		return OnTheWayStock
 	def LoadLogFile(self):#
-		self.Log = XMLAccountLog(self.Number,self.passWord)
-		self.Log.TodayLog.BeginAvailable = self.balance[BAL_AFu]
-		self.Log.TodayLog.EndAvailable = self.balance[BAL_AFu]
+		self.XMLLog = XMLAccountLog(self.Number,self.passWord)
+		self.XMLLog.TodayLog.BeginAvailable = self.balance[BAL_AFu]
+		self.XMLLog.TodayLog.EndAvailable = self.balance[BAL_AFu]
+		self.XMLLog.TodayLog.EndHolding=[]
 		for stock in self.position:
-			self.Log.TodayLog.AddHold(stock[POS_SCo],stock[POS_SBa],stock[POS_CPr],(stock[POS_GPr]-stock[POS_CPr])*stock[POS_SBa])
-		self.Log.SaveAccountLog()
+			self.XMLLog.TodayLog.AddHold(stock[POS_SCo],stock[POS_SBa],stock[POS_CPr],(stock[POS_GPr]-stock[POS_CPr])*stock[POS_SBa])
+		self.XMLLog.SaveAccountLog()
 		
 		
 		
@@ -765,10 +793,13 @@ class SecurityDOM():
 				logger.info('解析文件出错，检查文件是否合法。')
 			finally:
 				DomMutex.release()
-	def Reload(self):
+	def Reload(self,mode='Buck'):
 		if DomMutex.acquire(3):
 			try:
-				self.dom = xmldom.parse(XmlPath  + self.__AccountFileName)
+				if mode == 'Buck':#从备份文件中重新加载
+					self.dom = xmldom.parse(XmlPath  + 'BackUp' + self.__AccountFileName)
+				elif mode == '':
+					self.dom = xmldom.parse(XmlPath + self.__AccountFileName)
 			except:
 				logger.info('解析文件出错，检查文件是否合法。')
 			finally:
@@ -776,7 +807,10 @@ class SecurityDOM():
 	def DOMSave(self):
 		with open(XmlPath + self.__AccountFileName, 'w', encoding = 'utf-8') as file:
 			self.dom.writexml(file, addindent='\t', newl='\n',encoding = 'utf-8')#
-		mycopyfile(XmlPath + self.__AccountFileName,XmlPath + 'BuckUp' + self.__AccountFileName)#保存后备份一个文件，防止写文时意外退出导致数据丢失。
+		if not mycopyfile(XmlPath + self.__AccountFileName,XmlPath + 'BackUp' + self.__AccountFileName):
+			logger.warning('保存XMl文件出错，重新加载备份的文件。')
+			self.Reload()#如果保存不成功，则重新加载备份数据
+		#保存后备份一个文件，防止写文时意外退出导致数据丢失。
 	def GetDocumentElement(self):
 			return self.dom.documentElement
 	def removeChild(self,childNode):

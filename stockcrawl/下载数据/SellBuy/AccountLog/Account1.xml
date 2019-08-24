@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Account number="AcInition">
+		<Number>AcInition</Number>
+		<PassWord>123456</PassWord>
+		<参考市值>1000000</参考市值>
+		<可用资金>1000000</可用资金>
+		<币种>0</币种>
+		<总资产>1000000</总资产>
+		<股份参考盈亏>0</股份参考盈亏>
+		<资金余额>1000000</资金余额>
+		<资金帐号>Inition</资金帐号>
+	</Account>
+</Root>

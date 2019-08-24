@@ -6,7 +6,7 @@ import datetime
 import TreadToGetStock
 import time
 import PriceLoop
-
+import XMLAccount
 
 if __name__ == '__main__':
 	thread1 = TreadToGetStock.ThreadToChackStockPrice(1,'000001')
@@ -58,4 +58,15 @@ ac = XMLAccount.Account('Account1',123456)
 
 dom = XMLAccount.SecurityDOM()
 ac = XMLAccount.Account('Account1',dom)
+
+
+
+dom = XMLAccount.SecurityDOM()
+Ac=XMLAccount.Account('Account1',dom)
+Ac.SellStock(7.62,65600,'600732')
+Ac.SaveToDom(dom)
+
+ll = XMLAccount.XMLAccountLog('Account7','123456')
+ll.TodayLog.SellOper('000007',76900,7.6)
+ll.SaveAccountLog()
 '''

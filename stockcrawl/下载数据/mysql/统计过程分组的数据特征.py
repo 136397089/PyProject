@@ -187,7 +187,7 @@ def CheckAndSimulation(tablename,GroupType):
 	[data,meanVar] = GetAllDataIndex(tablename,engine,GroupType)#
 	randList = []
 	LastresultList = []
-	AnaTime = 1000
+	AnaTime = 100
 	rangeTime = 30
 	for i in range(0,rangeTime):
 		randList.append(randSum(data.values,AnaTime))

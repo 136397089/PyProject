@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LogPack account="Account300">
+	<Account number="Account300">
+		<PassWord>123456</PassWord>
+		<InitialFunds>1000000</InitialFunds>
+	</Account>
+	<DailyLog date="2019-01-01">
+		<Date>2019-01-01</Date>
+		<BeginAvailable>1000000</BeginAvailable>
+		<BeginHolding>EmptyHold
+		</BeginHolding>
+		<EndAvailable>1000000</EndAvailable>
+		<EndHolding>EmptyHold
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-05">
+		<date>2019-08-05</date>
+		<BeginAvailable>500466.0224000001</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<EndAvailable>500466.0224000001</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>300718</StockCode>
+				<StockNumber>29200.0</StockNumber>
+				<CostPrice>17.08</CostPrice>
+				<OtherExpenses>797.97760000002</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-06">
+		<date>2019-08-06</date>
+		<BeginAvailable>500466.0224000001</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>300718</StockCode>
+				<StockNumber>29200</StockNumber>
+				<CostPrice>17.08</CostPrice>
+				<OtherExpenses>797.97760000002</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<SellOperation>
+			<StockCode>300718</StockCode>
+			<StockNumber>29200.0</StockNumber>
+			<CostPrice>16.98</CostPrice>
+			<OtherExpenses>0</OtherExpenses>
+			<Time>2019-08-06 09:29:26</Time>
+		</SellOperation>
+		<EndAvailable>996282.0224000001</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>300718</StockCode>
+				<StockNumber>29200.0</StockNumber>
+				<CostPrice>17.179999999999996</CostPrice>
+				<OtherExpenses>1595.95520000004</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+</LogPack>

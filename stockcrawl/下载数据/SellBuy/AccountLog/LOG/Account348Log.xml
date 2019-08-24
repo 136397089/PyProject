@@ -13,45 +13,307 @@
 		<EndHolding>EmptyHold
 		</EndHolding>
 	</DailyLog>
-	<DailyLog date="2019-08-02">
-		<date>2019-08-02</date>
+	<DailyLog date="2019-08-11">
+		<date>2019-08-11</date>
 		<BeginAvailable>1000000.0</BeginAvailable>
 		<BeginHolding Hold="Hold"/>
 		<EndAvailable>1000000.0</EndAvailable>
 		<EndHolding Hold="Hold"/>
 	</DailyLog>
-	<DailyLog date="2019-08-03">
-		<date>2019-08-03</date>
-		<BeginAvailable>1000000.0</BeginAvailable>
-		<BeginHolding Hold="Hold"/>
-		<EndAvailable>1000000.0</EndAvailable>
-		<EndHolding Hold="Hold"/>
-	</DailyLog>
-	<DailyLog date="2019-08-04">
-		<date>2019-08-04</date>
-		<BeginAvailable>1000000.0</BeginAvailable>
-		<BeginHolding Hold="Hold"/>
-		<EndAvailable>1000000.0</EndAvailable>
-		<EndHolding Hold="Hold"/>
-	</DailyLog>
-	<DailyLog date="2019-08-05">
-		<date>2019-08-05</date>
-		<BeginAvailable>1000000.0</BeginAvailable>
+	<DailyLog date="2019-08-12">
+		<date>2019-08-12</date>
+		<BeginAvailable>500229.6448</BeginAvailable>
 		<BeginHolding Hold="Hold"/>
 		<BuyOperation>
-			<StockCode>600309</StockCode>
-			<StockNumber>11700</StockNumber>
-			<CostPrice>42.71</CostPrice>
-			<OtherExpenses>799.5312</OtherExpenses>
-			<Time>2019-08-05 11:25:41</Time>
+			<StockCode>002568</StockCode>
+			<StockNumber>25800</StockNumber>
+			<CostPrice>19.34</CostPrice>
+			<OtherExpenses>798.3552</OtherExpenses>
+			<Time>2019-08-12 10:00:06</Time>
 		</BuyOperation>
-		<EndAvailable>499493.4688</EndAvailable>
+		<EndAvailable>500229.6448</EndAvailable>
 		<EndHolding Hold="Hold">
 			<Stock>
-				<StockCode>600309</StockCode>
-				<StockNumber>11700</StockNumber>
-				<CostPrice>42.71</CostPrice>
-				<OtherExpenses>799.5312</OtherExpenses>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-13">
+		<date>2019-08-13</date>
+		<BeginAvailable>500229.6448</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>500229.6448</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-14">
+		<date>2019-08-14</date>
+		<BeginAvailable>500229.6448</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<BuyOperation>
+			<StockCode>600511</StockCode>
+			<StockNumber>20000</StockNumber>
+			<CostPrice>24.95</CostPrice>
+			<OtherExpenses>798.4000000000001</OtherExpenses>
+			<Time>2019-08-14 10:17:28</Time>
+		</BuyOperation>
+		<EndAvailable>431.24480000000904</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+			<Stock>
+				<StockCode>600511</StockCode>
+				<StockNumber>20000</StockNumber>
+				<CostPrice>24.95</CostPrice>
+				<OtherExpenses>798.4000000000001</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-15">
+		<date>2019-08-15</date>
+		<BeginAvailable>431.24480000000904</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+			<Stock>
+				<StockCode>600511</StockCode>
+				<StockNumber>20000</StockNumber>
+				<CostPrice>24.95</CostPrice>
+				<OtherExpenses>798.4000000000001</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>431.24480000000904</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+			<Stock>
+				<StockCode>600511</StockCode>
+				<StockNumber>20000.0</StockNumber>
+				<CostPrice>24.95</CostPrice>
+				<OtherExpenses>798.4000000000435</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-16">
+		<date>2019-08-16</date>
+		<BeginAvailable>431.24480000000904</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+			<Stock>
+				<StockCode>600511</StockCode>
+				<StockNumber>20000</StockNumber>
+				<CostPrice>24.95</CostPrice>
+				<OtherExpenses>798.4000000000435</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<SellOperation>
+			<StockCode>600511</StockCode>
+			<StockNumber>20000.0</StockNumber>
+			<CostPrice>25.35</CostPrice>
+			<OtherExpenses>0</OtherExpenses>
+			<Time>2019-08-16 09:34:59</Time>
+		</SellOperation>
+		<EndAvailable>507431.2448</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-17">
+		<date>2019-08-17</date>
+		<BeginAvailable>507431.2448</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>507431.2448</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-18">
+		<date>2019-08-18</date>
+		<BeginAvailable>507431.2448</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>507431.2448</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800.0</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-19">
+		<date>2019-08-19</date>
+		<BeginAvailable>507431.2448</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>002568</StockCode>
+				<StockNumber>25800</StockNumber>
+				<CostPrice>19.34</CostPrice>
+				<OtherExpenses>798.3551999999506</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<SellOperation>
+			<StockCode>002568</StockCode>
+			<StockNumber>25800.0</StockNumber>
+			<CostPrice>21.06</CostPrice>
+			<OtherExpenses>0</OtherExpenses>
+			<Time>2019-08-19 09:30:36</Time>
+		</SellOperation>
+		<EndAvailable>1050779.2448</EndAvailable>
+		<EndHolding Hold="Hold"/>
+	</DailyLog>
+	<DailyLog date="2019-08-20">
+		<date>2019-08-20</date>
+		<BeginAvailable>1050779.2448</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<EndAvailable>1050779.2448</EndAvailable>
+		<EndHolding Hold="Hold"/>
+	</DailyLog>
+	<DailyLog date="2019-08-21">
+		<date>2019-08-21</date>
+		<BeginAvailable>1050779.2448</BeginAvailable>
+		<BeginHolding Hold="Hold"/>
+		<BuyOperation>
+			<StockCode>603808</StockCode>
+			<StockNumber>37200</StockNumber>
+			<CostPrice>14.1</CostPrice>
+			<OtherExpenses>839.232</OtherExpenses>
+			<Time>2019-08-21 14:10:41</Time>
+		</BuyOperation>
+		<EndAvailable>525420.0128</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.232</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-22">
+		<date>2019-08-22</date>
+		<BeginAvailable>525420.0128</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.232</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>525420.0128</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200.0</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.2319999999472</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-23">
+		<date>2019-08-23</date>
+		<BeginAvailable>525420.0128</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.2319999999472</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>525420.0128</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200.0</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.2319999999472</OtherExpenses>
+			</Stock>
+		</EndHolding>
+	</DailyLog>
+	<DailyLog date="2019-08-24">
+		<date>2019-08-24</date>
+		<BeginAvailable>525420.0128</BeginAvailable>
+		<BeginHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.2319999999472</OtherExpenses>
+			</Stock>
+		</BeginHolding>
+		<EndAvailable>525420.0128</EndAvailable>
+		<EndHolding Hold="Hold">
+			<Stock>
+				<StockCode>603808</StockCode>
+				<StockNumber>37200.0</StockNumber>
+				<CostPrice>14.1</CostPrice>
+				<OtherExpenses>839.2319999999472</OtherExpenses>
 			</Stock>
 		</EndHolding>
 	</DailyLog>
