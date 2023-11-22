@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Demo</folder>
+	<filename>VCG41N518246442.jpg</filename>
+	<path>E:\__GitCodeData\9_PyProject\机器学习\pytorch\Demo\VCG41N518246442.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>773</width>
+		<height>800</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>104</xmin>
+			<ymin>57</ymin>
+			<xmax>746</xmax>
+			<ymax>491</ymax>
+		</bndbox>
+	</object>
+</annotation>

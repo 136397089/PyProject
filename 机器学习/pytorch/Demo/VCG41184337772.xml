@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Demo</folder>
+	<filename>VCG41184337772.jpg</filename>
+	<path>E:\__GitCodeData\9_PyProject\机器学习\pytorch\Demo\VCG41184337772.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>531</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>mouse</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>266</xmin>
+			<ymin>38</ymin>
+			<xmax>679</xmax>
+			<ymax>493</ymax>
+		</bndbox>
+	</object>
+</annotation>

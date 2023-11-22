@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Demo</folder>
+	<filename>wKgAFFUvWymAJUHFAATzeWkJ5kw259.jpg</filename>
+	<path>E:\__GitCodeData\9_PyProject\机器学习\pytorch\Demo\wKgAFFUvWymAJUHFAATzeWkJ5kw259.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2415</width>
+		<height>1610</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cow</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>444</xmin>
+			<ymin>205</ymin>
+			<xmax>1969</xmax>
+			<ymax>1444</ymax>
+		</bndbox>
+	</object>
+</annotation>
